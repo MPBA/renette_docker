@@ -1,0 +1,22 @@
+FROM fedora
+
+MAINTAINER hiromu
+
+RUN yum install -y git
+RUN yum install -y python-pip
+RUN yum install -y gcc
+RUN yum install -y python-devel
+RUN yum install -y R
+RUN yum install -y readline-devel
+RUN yum install -y postgresql
+RUN yum install -y postgresql-devel
+RUN groupadd -g <GID> renette
+RUN useradd -m -s /bin/false -u <UID> -g <GID> renette
+
+ADD requirements.txt /requirements.txt
+RUN pip install -r /requirements.txt
+RUN rm /requirements.txt
+
+USER renette
+
+ENTRYPOINT ["/usr/bin/python", "/home/renette/renette/manage.py", "celery", "worker", "--settings=renette.settings.docker"]

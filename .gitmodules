@@ -1,0 +1,3 @@
+[submodule "renette"]
+	path = renette
+	url = https://github.com/MPBA/renette.git
