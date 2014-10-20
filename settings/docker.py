@@ -72,9 +72,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'renette',
         'USER': 'renette',
-        'PASSWORD': 'nette@re!!',
-        'HOST': 'geopg',
-        'PORT': '50003',
+        'PASSWORD': 'renette',
+        'HOST': os.environ['PGSQL_PORT_5432_TCP_ADDR'],
+        'PORT': os.environ['PGSQL_PORT_5432_TCP_PORT'],
     }
 }
 # Internationalization
