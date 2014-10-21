@@ -171,5 +171,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'gsgisng@gmail.com'
 EMAIL_HOST_PASSWORD = 'ciaociaociao'
 
-import djcelery
-djcelery.setup_loader()
+#import djcelery
+#djcelery.setup_loader()
+import celery
+APP = celery.Celery('engine.tasks', broker = BROKER_URL, backend = BROKER_URL)

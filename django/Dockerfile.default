@@ -8,7 +8,6 @@ RUN yum install -y git
 RUN yum install -y python-pip
 RUN yum install -y gcc
 RUN yum install -y python-devel
-RUN yum install -y R
 RUN yum install -y readline-devel
 RUN yum install -y postgresql
 RUN yum install -y postgresql-devel

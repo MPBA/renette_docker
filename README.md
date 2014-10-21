@@ -3,6 +3,7 @@
 ## Installation
 
     $ cp settings/docker.py renette/renette/settings/docker.py
+    $ cp settings/tasks.py renette/engine/tasks.py
     $ sed -e "s/<UID>/`ls -dn renette | awk '{ print $3 }'`/" celery/Dockerfile.default | sed -e "s/<GID>/`ls -dn renette | awk '{ print $4 }'`/" > celery/Dockerfile
     $ sed -e "s/<UID>/`ls -dn renette | awk '{ print $3 }'`/" django/Dockerfile.default | sed -e "s/<GID>/`ls -dn renette | awk '{ print $4 }'`/" > django/Dockerfile
 

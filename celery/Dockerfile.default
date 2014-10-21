@@ -2,7 +2,6 @@ FROM fedora
 
 MAINTAINER hiromu
 
-RUN yum install -y git
 RUN yum install -y python-pip
 RUN yum install -y gcc
 RUN yum install -y python-devel
@@ -22,4 +21,4 @@ RUN R -q -e 'chooseCRANmirror(ind = 1); install.packages("devtools"); source("ht
 
 USER renette
 
-ENTRYPOINT ["/usr/bin/python", "/home/renette/renette/manage.py", "celery", "worker", "--settings=renette.settings.docker"]
+ENTRYPOINT ["/usr/bin/celery", "--workdir=/home/renette/renette/engine", "-A", "tasks", "worker"]
