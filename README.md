@@ -23,6 +23,7 @@
     
     # first time only
     $ sudo docker run --name django --link redis:redis --link pgsql:pgsql -v `pwd`/renette:/home/renette/renette --rm=true --entrypoint='python' -i -t renette/django /home/renette/renette/manage.py syncdb
+    $ sudo docker run --name django --link redis:redis --link pgsql:pgsql -v `pwd`/renette:/home/renette/renette --rm=true --entrypoint='python' -i -t renette/django /home/renette/renette/manage.py collectstatic
     
     $ sudo docker run --name django --link redis:redis --link pgsql:pgsql -v `pwd`/renette:/home/renette/renette -d renette/django
     $ sudo docker run --link django:django -v `pwd`/renette:/home/renette/renette -d renette/nginx
